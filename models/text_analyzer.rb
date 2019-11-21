@@ -21,15 +21,15 @@ class TextAnalyzer
 
   def most_used_letter
     s1 = text.gsub(/[^a-z]/, '') # gets rid of spaces
-    arr = s1.split('')
-    arr1 = arr.uniq
+    arr = s1.split('') #splits letters with spaces
+    arr1 = arr.uniq #keeps only unique letters
     arr2 = {}
 
-    arr1.map do |c|
-      arr2[c] =  arr.count(c)
+    arr1.map do |c| #collects letters
+      arr2[c] =  arr.count(c) #sets keys in arr2 to letter, equal to the count for that letter
     end
 
-    biggest = { arr2.keys.first => arr2.values.first }
+    biggest = { arr2.keys.first => arr2.values.first }#
 
     arr2.each do |key, value|
       if value > biggest.values.first
